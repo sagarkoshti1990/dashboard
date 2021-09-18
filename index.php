@@ -24,16 +24,34 @@ switch ($request) {
         break;
     case '/dashboard/products' :
         require __DIR__ . '/controller/productController.php';
+        $obj = new Controller\ProductController;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $obj->index($_REQUEST);
+        } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $obj->store($_REQUEST);
+        }
+        break;
+    case '/dashboard/products/create' :
+        require __DIR__ . '/controller/productController.php';
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $obj = new Controller\ProductController;
-            $obj->index($_REQUEST);
+            $obj->create($_REQUEST);
         }
         break;
     case '/dashboard/gallery' :
         require __DIR__ . '/controller/galleryController.php';
+        $obj = new Controller\GalleryController;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $obj->index($_REQUEST);
+        } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $obj->store($_REQUEST);
+        }
+        break;
+    case '/dashboard/gallery/create' :
+        require __DIR__ . '/controller/galleryController.php';
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $obj = new Controller\GalleryController;
-            $obj->index($_REQUEST);
+            $obj->create($_REQUEST);
         }
         break;
     case '/dashboard/enquiries' :

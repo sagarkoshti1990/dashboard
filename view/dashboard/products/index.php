@@ -2,9 +2,7 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Products</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
-        <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
-        </div>
+        <a href="<?=$url?>/dashboard/products/create" class="btn btn-sm btn-outline-secondary">Add</a>
     </div>
 </div>
 <div class="table-responsive">
@@ -19,13 +17,13 @@
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($item['data'] as $key=>$product): ?>
+    <?php foreach ($item['data'] as $key=>$galary): ?>
         <tr>
-            <td><?=$product['id']?></td>
-            <td><?=$product['title']?></td>
-            <td><img src="<?= $url.'/'.$product['image_url']; ?>" class="card-img-top" alt="..."></td>
-            <td><?= $product['content_hierarchy']; ?></td>
-            <td><?= $product['description']; ?></td>
+            <td><?=$galary['id']?></td>
+            <td><?=$galary['title']?></td>
+            <td><img src="<?= $url.'/'.$galary['image_url']; ?>" class="card-img-top" alt="..."></td>
+            <td><?= $galary['content_hierarchy']; ?></td>
+            <td><?= $galary['description']; ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>

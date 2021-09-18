@@ -15,7 +15,7 @@ class DB
             $conn = new \PDO("mysql:host=$servername;dbname=$database_name", $username, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-
+            
             $this->db = $conn;
         } catch(\PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
@@ -100,6 +100,21 @@ class DB
         $sth = $this->db->prepare($this->query);
         $sth->execute();
         return $sth->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function save($data)
+    {
+        $columns = implode(", ",array_keys($data));
+        $prep = [];
+        foreach($data as $k => $v ) {
+            $prep[':'.$k] = $v;
+        }
+
+        $values  = implode(", ", array_keys($prep));
+        $query = "INSERT INTO $this->table ($columns) VALUES ($values)";
+        $sth = $this->db->prepare($query);
+        $sth->execute($prep);
+        return self::table($this->table)->select("*")->where([["id" => $this->db->lastInsertId()]])->first();
     }
 }
 
