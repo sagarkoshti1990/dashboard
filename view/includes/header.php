@@ -20,13 +20,16 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/view/aboutUs.php">aboutUs</a>
+          <a class="nav-link" href="/aboutUs">aboutUs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/view/productsServices.php">Products Services</a>
+          <a class="nav-link" href="/productsServices">Products Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/view/gallery.php">Gallery</a>
+          <a class="nav-link" href="/gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">Dashboard</a>
         </li>
       </ul>
     </div>

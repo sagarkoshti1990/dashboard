@@ -1,7 +1,7 @@
 <?php
 require 'includes/header.php';
-require '../model/DB.php';
-require '../helper/Custom.php';
+require 'model/DB.php';
+require 'helper/Custom.php';
 $item = Model\DB::table("products")->select("*")->pagination(3);
 $url = Helper\Custom::url();
 ?>
